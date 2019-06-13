@@ -6,6 +6,10 @@ RUN curl ${MINICONDA_URL} -o /miniconda.sh && \
     conda update -n base conda && \
     rm -f /miniconda.sh
 
+# FIXME: this will go away as soon as a new version of distributed is released,
+# probably with dask-cuda 0.8
+RUN pip install git+https://github.com/dask/distributed.git@master
+
 ########################################
 # conda environment
 # NOTE: use these mirrors for faster downloads
@@ -29,7 +33,6 @@ RUN export CUDA_MAJOR=`echo $CUDA_VERSION | cut -d'.' -f1` && \
       cuda${CUDA_MAJOR}${CUDA_MINOR} \
       cython=${CYTHON_VERSION} \
       dask=${DASK_VERSION} \
-      distributed=${DISTRIBUTED_VERSION} \
       faiss-gpu=${FAISSGPU_VERSION} \
       ipython=${IPYTHON_VERSION} \
       jupyterlab \

@@ -30,6 +30,10 @@ RUN export CUDA_MAJOR=`echo $CUDA_VERSION | cut -d'.' -f1` && \
 # Enables "source activate conda"
 SHELL ["/bin/bash", "-c"]
 
+# FIXME: this will go away as soon as a new version of distributed is released,
+# probably with dask-cuda 0.8
+RUN source activate rapids && pip install git+https://github.com/dask/distributed.git@master
+
 # Special case: libcumlmg is not available for CUDA 9.2
 #RUN if [ "${CUDA_MAJORMINOR_VERSION}" != "9.2" ]; then conda install -n rapids -y --no-deps -c ${NVIDIA_CONDA_LABEL} -c conda-forge libcumlmg; fi
 
