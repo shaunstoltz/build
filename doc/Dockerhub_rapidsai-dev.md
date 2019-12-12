@@ -67,19 +67,19 @@ The tag naming scheme for RAPIDS images incorporates key platform details into t
 
 #### Preferred - Docker CE v19+ and `nvidia-container-toolkit`
 ```bash
-$ docker pull rapidsai/rapidsai-dev:0.10-cuda9.2-devel-ubuntu16.04
+$ docker pull rapidsai/rapidsai-dev:0.10-cuda9.2-devel-ubuntu16.04-py3.6-py3.6
 $ docker run --gpus all --rm -it -p 8888:8888 -p 8787:8787 -p 8786:8786 \
-         rapidsai/rapidsai-dev:0.10-cuda9.2-devel-ubuntu16.04
-         ```
-         **NOTE:** This will open a shell with [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/) running in the background on port 8888 on your host machine.
+         rapidsai/rapidsai-dev:0.10-cuda9.2-devel-ubuntu16.04-py3.6
+```
+**NOTE:** This will open a shell with [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/) running in the background on port 8888 on your host machine.
 
 #### Legacy - Docker CE v18 and `nvidia-docker2`
 ```bash
-$ docker pull rapidsai/rapidsai-dev:0.10-cuda9.2-devel-ubuntu16.04
+$ docker pull rapidsai/rapidsai-dev:0.10-cuda9.2-devel-ubuntu16.04-py3.6
 $ docker run --runtime=nvidia --rm -it -p 8888:8888 -p 8787:8787 -p 8786:8786 \
-         rapidsai/rapidsai-dev:0.10-cuda9.2-devel-ubuntu16.04
-         ```
-         **NOTE:** This will open a shell with [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/) running in the background on port 8888 on your host machine.
+         rapidsai/rapidsai-dev:0.10-cuda9.2-devel-ubuntu16.04-py3.6
+```
+**NOTE:** This will open a shell with [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/) running in the background on port 8888 on your host machine.
 
 ### Use JupyterLab to Explore the Notebooks
 
@@ -101,17 +101,16 @@ You are free to modify the above steps. For example, you can launch an interacti
 ```bash
 $ docker run --gpus all --rm -it -p 8888:8888 -p 8787:8787 -p 8786:8786 \
          -v /path/to/host/data:/rapids/my_data \
-                  rapidsai/rapidsai-dev:0.10-cuda9.2-devel-ubuntu16.04
-                  ```
+                  rapidsai/rapidsai-dev:0.10-cuda9.2-devel-ubuntu16.04-py3.6
+```
 
 #### Legacy - Docker CE v18 and `nvidia-docker2`
 ```bash
 $ docker run --runtime=nvidia --rm -it -p 8888:8888 -p 8787:8787 -p 8786:8786 \
          -v /path/to/host/data:/rapids/my_data \
-                  rapidsai/rapidsai-dev:0.10-cuda9.2-devel-ubuntu16.04
-                  ```
-                  This will map data from your host operating system to the container OS in the `/rapids/my_data` directory. You may need to modify the provided notebooks for the new data paths.
-
+                  rapidsai/rapidsai-dev:0.10-cuda9.2-devel-ubuntu16.04-py3.6
+```
+This will map data from your host operating system to the container OS in the `/rapids/my_data` directory. You may need to modify the provided notebooks for the new data paths.
 
 ### Access Documentation within Notebooks
 

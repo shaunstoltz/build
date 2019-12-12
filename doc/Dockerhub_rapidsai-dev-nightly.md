@@ -1,6 +1,6 @@
 # [NIGHTLY] RAPIDS - Open GPU Data Science
 
-**IMPORTANT:** For our latest stable release please use the [rapidsai/rapidsai](https://hub.docker.com/r/rapidsai/rapidsai) containers.
+**IMPORTANT:** For our latest stable release please use the [rapidsai/rapidsai-dev](https://hub.docker.com/r/rapidsai/rapidsai-dev) containers.
 
 ## What is RAPIDS?
 

@@ -40,9 +40,9 @@ For images that contain the full RAPIDS source tree, pre-built with all artifact
 
 The tag naming scheme for RAPIDS images incorporates key platform details into the tag as shown below:
 ```
-0.9-cuda9.2-runtime-ubuntu16.04-py3.6
- ^       ^    ^        ^         ^
- |       |    type     |         python version
+0.9-cuda9.2-runtime-ubuntu16.04
+ ^       ^    ^        ^
+ |       |    type     |
  |       |             |
  |       cuda version  |
  |                     |
@@ -51,7 +51,7 @@ The tag naming scheme for RAPIDS images incorporates key platform details into t
 
 To get the latest RAPIDS version of a specific platform combination, simply exclude the RAPIDS version.  For example, to pull the latest version of RAPIDS for the `runtime` image with support for CUDA 10.1, Python 3.6, and Ubuntu 18.04, use the following tag:
 ```
-cuda10.1-runtime-ubuntu18.04-py3.6
+cuda10.1-runtime-ubuntu18.04
 ```
 For most users the latest `runtime` image will be sufficient to get started with RAPIDS.
 
@@ -72,16 +72,16 @@ For most users the latest `runtime` image will be sufficient to get started with
 $ docker pull rapidsai/rapidsai:cuda9.2-runtime-ubuntu16.04
 $ docker run --gpus all --rm -it -p 8888:8888 -p 8787:8787 -p 8786:8786 \
          rapidsai/rapidsai:cuda9.2-runtime-ubuntu16.04
-         ```
-         **NOTE:** This will open a shell with [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/) running in the background on port 8888 on your host machine.
+```
+**NOTE:** This will open a shell with [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/) running in the background on port 8888 on your host machine.
 
 #### Legacy - Docker CE v18 and `nvidia-docker2`
 ```bash
 $ docker pull rapidsai/rapidsai:cuda9.2-runtime-ubuntu16.04
 $ docker run --runtime=nvidia --rm -it -p 8888:8888 -p 8787:8787 -p 8786:8786 \
          rapidsai/rapidsai:cuda9.2-runtime-ubuntu16.04
-         ```
-         **NOTE:** This will open a shell with [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/) running in the background on port 8888 on your host machine.
+```
+**NOTE:** This will open a shell with [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/) running in the background on port 8888 on your host machine.
 
 ### Use JupyterLab to Explore the Notebooks
 
@@ -104,27 +104,27 @@ You are free to modify the above steps. For example, you can launch an interacti
 $ docker run --gpus all --rm -it -p 8888:8888 -p 8787:8787 -p 8786:8786 \
          -v /path/to/host/data:/rapids/my_data \
                   rapidsai/rapidsai:cuda9.2-runtime-ubuntu16.04
-                  ```
+```
 
 #### Legacy - Docker CE v18 and `nvidia-docker2`
 ```bash
 $ docker run --runtime=nvidia --rm -it -p 8888:8888 -p 8787:8787 -p 8786:8786 \
          -v /path/to/host/data:/rapids/my_data \
                   rapidsai/rapidsai:cuda9.2-runtime-ubuntu16.04
-                  ```
-                  This will map data from your host operating system to the container OS in the `/rapids/my_data` directory. You may need to modify the provided notebooks for the new data paths.
+```
+This will map data from your host operating system to the container OS in the `/rapids/my_data` directory. You may need to modify the provided notebooks for the new data paths.
 
 ### Access Documentation within Notebooks
 
 You can check the documentation for RAPIDS APIs inside the JupyterLab notebook using a `?` command, like this:
 ```
-    [1] ?cudf.read_csv
-    ```
-    This prints the function signature and its usage documentation. If this is not enough, you can see the full code for the function using `??`:
-    ```
-        [1] ??pygdf.read_csv
-        ```
-        Check out the RAPIDS [documentation](http://rapids.ai/start.html) for more detailed information and a RAPIDS [cheat sheet](https://rapids.ai/files/cheatsheet.pdf).
+[1] ?cudf.read_csv
+```
+This prints the function signature and its usage documentation. If this is not enough, you can see the full code for the function using `??`:
+```
+[1] ??pygdf.read_csv
+```
+Check out the RAPIDS [documentation](http://rapids.ai/start.html) for more detailed information and a RAPIDS [cheat sheet](https://rapids.ai/files/cheatsheet.pdf).
 
 ## More Information
 
